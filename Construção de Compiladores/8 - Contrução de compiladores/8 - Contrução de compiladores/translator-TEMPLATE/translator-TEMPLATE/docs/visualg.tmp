@@ -1,0 +1,10 @@
+algoritmo "exemplo 00"
+var
+
+
+
+
+
+inicio 
+  escreva("teste")
+fimalgoritmo

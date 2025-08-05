@@ -1,0 +1,8 @@
+In file included from sintatica.y:581:
+lexica.l: In function ‘void debug(std::string, int, int, int, std::string)’:
+lexica.l:577:16: warning: too many arguments for format [-Wformat-extra-args]
+  577 |         cout << msg << endl;
+      |                ^~~~~~~~~~~~~           
+lexica.l:568:65: warning: unused parameter ‘tipo’ [-Wunused-parameter]
+  568 |     // formato de saida: [token, value] description
+      |                                                                 ^   
