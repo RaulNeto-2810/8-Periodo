@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Qualquer coisa</h1>
+    <h2>Chat Descentralizado</h2>
+    <div id="mensagens"></div>
+    <input type="text" name="texto" id="texto">
+    <button id="enviar">Enviar</button>
+
+    <script>
+    // Inicia a conexão com o servidor Socket.IO
+    const socket = io('http://Localhost:3000');
+
+    // Evento para enviar mensagem ao clicar no botão
+    socket.on('connect', () => {
+        console.log(`Conectado ao servidor`);
+    });
+
+    // Evento que recebe mensagens do servidor
+    socket.on('mensagem', (msg) => {
+        const div = document.getElementById('mensagens');
+        div.innerHTML += `<p>${msg}</p>`;
+    });
+
+    // Evento para enviar mensagem ao clicar no botão
+    const botao = document.getElementById('enviar');
+    botao.addEventListener("click", function () {
+        const input = document.getElementById('texto');
+        const mensagem = input.value.trim();
+        if(mensagem){
+            socket.emit('mensagem', mensagem);
+            input.value = ''; // Limpa o campo de entrada após enviar
+        } else {
+            alert('Por favor, digite uma mensagem antes de enviar.');
+        }
+    });
+
+</script>
+
+</body>
+</html>
