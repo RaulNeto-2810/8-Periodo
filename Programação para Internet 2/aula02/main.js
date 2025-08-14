@@ -55,7 +55,3 @@ app.delete('/usuarios/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`)
 })
-
-
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
