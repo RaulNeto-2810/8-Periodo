@@ -1,0 +1,139 @@
+body {
+    background: linear-gradient(135deg, #0f2027, #2c5364);
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px #000a;
+}
+
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 60px auto 0 auto;
+    max-width: 900px;
+}
+
+#card>div {
+    background: rgba(44, 83, 100, 0.85);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 #0008, 0 1.5px 0 #00ffe7;
+    padding: 36px 48px;
+    min-width: 220px;
+    min-height: 80px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1.5px solid #00ffe7;
+    position: relative;
+    overflow: hidden;
+}
+
+#card>div::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: linear-gradient(120deg, #00ffe7 0%, #2c5364 100%);
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#card>div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px 0 #00ffe7aa, 0 2px 0 #00ffe7;
+    border-color: #fff;
+}
+
+#card>div {
+    z-index: 1;
+}
+
+/* Barra de progresso do combustível */
+#combustivel {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.combustivel-label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.combustivel-bar-container {
+    width: 100%;
+    background: #222c;
+    border-radius: 10px;
+    height: 28px;
+    box-shadow: 0 2px 8px #0005;
+    overflow: hidden;
+    margin-top: 8px;
+    border: 1.5px solid #00ffe7;
+}
+
+.combustivel-bar {
+    height: 100%;
+    transition: width 0.4s, background 0.4s;
+    border-radius: 10px 0 0 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.combustivel-verde {
+    background: linear-gradient(90deg, #00ff88 60%, #00ffe7 100%);
+}
+
+.combustivel-amarelo {
+    background: linear-gradient(90deg, #ffe600 60%, #ffef8a 100%);
+    color: #222;
+}
+
+.combustivel-laranja {
+    background: linear-gradient(90deg, #ff9800 60%, #ffc371 100%);
+}
+
+.combustivel-vermelho {
+    background: linear-gradient(90deg, #ff2e2e 60%, #ff6a6a 100%);
+}
+
+@media (max-width: 700px) {
+    #card {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    #card>div {
+        min-width: 160px;
+        padding: 24px 16px;
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <link rel="stylesheet" href="sensor.css">
+</head>
+
+<body>
+    <h1>Monitoramento de Sensores</h1>
+    <div id="card">
+        <div id="temperatura"></div>
+        <div id="umidade"></div>
+        <div id="velocidade"></div>
+        <div id="combustivel"></div>
+    </div>
+    <script>
+        const socket = io()
+        const temperatura = document.getElementById('temperatura')
+        const umidade = document.getElementById('umidade')
+        const velocidade = document.getElementById('velocidade')
+        const combustivel = document.getElementById('combustivel')
+
+        socket.on('dadosSensor', (dados) => {
+            console.table(dados)
+            temperatura.innerHTML = `Temperatura : ${dados.temperatura}`
+            umidade.innerHTML = `Umidade : ${dados.umidade}`
+            velocidade.innerHTML = `Velocidade : ${dados.velocidade}`
+
+            // Barra de progresso do combustível
+            let valor = Number(dados.combustivel)
+            if (isNaN(valor)) valor = 0
+            valor = Math.max(0, Math.min(100, valor))
+            let cor = 'combustivel-verde'
+            if (valor <= 24) cor = 'combustivel-vermelho'
+            else if (valor <= 49) cor = 'combustivel-laranja'
+            else if (valor <= 74) cor = 'combustivel-amarelo'
+
+            combustivel.innerHTML = `
+                <span class="combustivel-label">Combustível</span>
+                <div class="combustivel-bar-container">
+                    <div class="combustivel-bar ${cor}" style="width:${valor}%;">
+                        ${valor}%
+                    </div>
+                </div>
+            `
+        })
+    </script>
+</body>
+
+</html>
