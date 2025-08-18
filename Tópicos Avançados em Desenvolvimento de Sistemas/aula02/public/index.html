@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AULA 2</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+
+<body>
+    <h2>Chat com Rooms</h2>
+    <input type="text" id="sala" placeholder="Nome da sala">
+    <button onclick="entrarSala()">Entrar</button>
+    <input type="text" id="msg" placeholder="Mensagem">
+    <button onclick="enviarMsg()">Enviar Mensagem</button>
+
+    <ul id="chat"></ul>
+    <script>
+        const socket = io()
+        let salaAtual = null
+
+        function entrarSala() {
+            salaAtual = document.getElementById('sala').value.trim()
+            if (!salaAtual) return alert('Digite o nome da sala!')
+            socket.emit('entrarSala', salaAtual)
+            adicionarMensagem(`Você entrou na sala: ${salaAtual}`)
+        }
+
+        function enviarMsg() {
+            const msg = document.getElementById('msg').value.trim()
+            if (!msg) return
+            socket.emit('mensagemSala', { sala: salaAtual, msg })
+            document.getElementById('msg').value = ''
+        }
+
+        function adicionarMensagem(msg) {
+            const li = document.createElement('li')
+            li.textContent = msg
+            document.getElementById('chat').appendChild(li)
+        }
+
+        socket.on('mensagem', (msg) => {
+            adicionarMensagem(msg)
+        })
+    </script>
+</body>
+
+</html>
