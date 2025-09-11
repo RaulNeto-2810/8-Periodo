@@ -1,1 +1,3 @@
 MONGODB_URI=mongodb+srv://raultorres:Patvzi1YnP1VBJ3Z@cluster0.zl5bnvz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+AUTH_TOKEN=32Yshgoii5NsfHEcNaaaQuPMmgW_3tu1m8WYSCJooPUeKgM9e
