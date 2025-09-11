@@ -8,7 +8,7 @@ export default function App() {
 
   //useEffect roda enquanto o componente está sendo construído
   useEffect(() => {
-    fetch("https://03f34d9ce726.ngrok-free.app", {
+    fetch("https://b2ca3a1e27ee.ngrok-free.app", {
       method: "GET",
       headers:{
         "User-Agent": "Chinelinho",
@@ -48,7 +48,7 @@ export default function App() {
 
           </View>
         )}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id()}
       />
 
       <StatusBar style="auto" />
