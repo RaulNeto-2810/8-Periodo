@@ -8,13 +8,7 @@ export default function App() {
 
   //useEffect roda enquanto o componente está sendo construído
   useEffect(() => {
-    fetch("https://b2ca3a1e27ee.ngrok-free.app", {
-      method: "GET",
-      headers:{
-        "User-Agent": "Chinelinho",
-        "X-Custom-Agent": "Chinelinho"
-      }
-    })
+    fetch("https://de834903bf9c.ngrok-free.app/alunos")
       .then((resposta) => resposta.json())
       .then((dados) => {
         setUsuarios(dados);
@@ -45,10 +39,9 @@ export default function App() {
             <Text style={styles.texto}>{item.nome}</Text>
             <Text style={styles.email}>{item.curso}</Text>
             <Text style={styles.email}>{item.idade}</Text>
-
           </View>
         )}
-        keyExtractor={(item) => item.id()}
+        keyExtractor={(item) => item._id}
       />
 
       <StatusBar style="auto" />
