@@ -12,19 +12,19 @@ numero          [0-9]+\.?|[0-9]*\.[0-9]+
 "-"             { printf("[DEBUG] SUB\n");  return SUB;  }
 "*"             { printf("[DEBUG] MUL\n");  return MUL;  }
 "/"             { printf("[DEBUG] DIV\n");  return DIV;  }
+"\\"            { printf("[DEBUG] QUO\n");  return QUO;  }
+"%"             { printf("[DEBUG] MOD\n");  return MOD;  }
 "^"             { printf("[DEBUG] POW\n");  return POW;  }
 "("             { printf("[DEBUG] OPAR\n"); return OPAR; }
 ")"             { printf("[DEBUG] CPAR\n"); return CPAR; }
+"["             { printf("[DEBUG] OBRAK\n"); return OBRAK; }
+"]"             { printf("[DEBUG] CBRAK\n"); return CBRAK; }
 "!"             { printf("[DEBUG] FAT\n");  return FAT;  }
-"%"             { printf("[DEBUG] QUO\n");  return QUO;  }
-"//"            { printf("[DEBUG] MOD\n");  return MOD;  }
-"[]"            { printf("[DEBUG] ABS\n");  return ABS;  }
 ">="            { printf("[DEBUG] GE\n"); return GE; }
 "<="            { printf("[DEBUG] LE\n"); return LE; }
-"=="            { printf("[DEBUG] EQ\n"); return EQ; }
-"!="            { printf("[DEBUG] NE\n"); return NE; }
-">"             { printf("[DEBUG] REL\n"); return REL; }
-"<"             { printf("[DEBUG] REL\n"); return REL; }
+"<>"            { printf("[DEBUG] NE\n"); return NE; }
+">"             { printf("[DEBUG] GT\n"); return GT; }
+"<"             { printf("[DEBUG] LT\n"); return LT; }
 sair            { printf("[DEBUG] SAIR\n"); return QUIT; }
 
 {numero}        { yylval = atof(yytext);
