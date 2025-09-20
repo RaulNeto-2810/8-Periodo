@@ -3,12 +3,14 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const connectDB = require('./db')
 const alunosRouter = require('./routes/alunos.routes')
+const cors = require('cors')
 
 const app = express()
 
 const port = 3000
 
 app.use(express.json())
+app.use(cors()) // Habilita CORS para todas as rotas
 
 dotenv.config()
 
