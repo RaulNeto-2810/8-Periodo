@@ -1,3 +1,4 @@
+/* ===== BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ body {
     display: none;
 }
 
-/* Login Screen */
+/* ===== LOGIN SCREEN ===== */
 .login-container {
     background: white;
     border-radius: 12px;
@@ -154,7 +155,64 @@ body {
     font-size: 1.8rem;
     font-weight: 600;
     color: #2d3748;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+/* Timer Styles */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timer-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timer-circle.warning {
+    background: linear-gradient(135deg, #ed8936, #dd6b20);
+    animation: pulse 1s infinite;
+}
+
+.timer-circle.danger {
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    animation: pulse 0.5s infinite;
+}
+
+#timer-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    color: #718096;
+    text-align: center;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .shield-container {
@@ -284,6 +342,58 @@ body {
 .player-points {
     font-weight: 600;
     color: #4299e1;
+}
+
+/* Botões de fim de jogo */
+.game-over-buttons {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f7fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.play-again {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.play-again:hover {
+    background: linear-gradient(135deg, #38a169, #2f855a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+.back-to-menu {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+}
+
+.back-to-menu:hover {
+    background: linear-gradient(135deg, #3182ce, #2c5282);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+}
+
+.action-btn:active {
+    transform: translateY(0);
 }
 
 /* Responsividade */

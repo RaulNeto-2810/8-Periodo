@@ -207,5 +207,126 @@
     "alternativas": [
       "Hajduk Split"
     ]
+  },
+  {
+    "id": 21,
+    "nome": "Fluminense",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/ac/ac7c4584cc-450.webp",
+    "alternativas": [
+      "Flu",
+      "Fluminense FC"
+    ]
+  },
+  {
+    "id": 22,
+    "nome": "Nautico",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/d6/d65e569557-450.webp",
+    "alternativas": [
+      "Náutico",
+      "Clube Náutico Capibaribe"
+    ]
+  },
+  {
+    "id": 23,
+    "nome": "Íbis Sport Club",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/c5/c5cf66263b-450.webp",
+    "alternativas": [
+      "Íbis",
+      "Ibis"
+    ]
+  },
+  {
+    "id": 24,
+    "nome": "Paulista Futebol Clube",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/dc/dcab501764-450.webp",
+    "alternativas": [
+      "Paulista",
+      "Paulista FC"
+    ]
+  },
+  {
+    "id": 25,
+    "nome": "Luverdense Esporte Clube",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/a0/a07cf92618-450.webp",
+    "alternativas": [
+      "Luverdense",
+      "Luverdense EC"
+    ]
+  },
+  {
+    "id": 26,
+    "nome": "Sociedade Esportiva do Gama",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/58/586ced165c-450.webp",
+    "alternativas": [
+      "Gama",
+      "Sociedade Esportiva do Gama"
+    ]
+  },
+  {
+    "id": 27,
+    "nome": "Sport Club Corinthians Paulista",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/59/59e5143925-450.webp",
+    "alternativas": [
+      "Corinthians",
+      "Timão"
+    ]
+  },
+  {
+    "id": 28,
+    "nome": "Sampaio Corrêa Futebol Clube",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/d4/d4b08c26a3-450.webp",
+    "alternativas": [
+      "Sampaio",
+      "Sampaio Corrêa"
+    ]
+  },
+  {
+    "id": 29,
+    "nome": "Clube de Regatas do Flamengo",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/05/059146caf2-450.webp",
+    "alternativas": [
+      "Flamengo",
+      "Mengão"
+    ]
+  },
+  {
+    "id": 30,
+    "nome": "Paysandu Sport Club",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/2a/2a985e11b9-235.webp",
+    "alternativas": [
+      "Paysandu",
+      "Paysandu SC"
+    ]
+  },
+  {
+    "id": 31,
+    "nome": "Club Athletico Paranaense",
+    "pais": "Brasil",
+    "liga": "Brasileirão",
+    "url": "https://www.jetpunk.com/img/user-img/ac/ac2761258d-450.webp",
+    "alternativas": [
+      "Furacão",
+      "CAP"
+    ]
   }
 ]

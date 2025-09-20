@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz dos Escudos de Futebol</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Biblioteca Socket.IO -->
     <script src="/socket.io/socket.io.js"></script>
-    <!-- Nosso código cliente -->
     <script src="client.js" defer></script>
 </head>
 
@@ -25,7 +23,7 @@
                     <li>Um escudo de time aparecerá na tela</li>
                     <li>Digite o nome correto do time</li>
                     <li>Cada acerto vale 1 ponto</li>
-                    <li>Você tem 15 segundos para responder</li>
+                    <li>Você tem 1 minuto para responder o máximo de times</li>
                     <li>Compete com outros jogadores em tempo real</li>
                 </ul>
             </div>
@@ -43,20 +41,35 @@
             <div class="game-area">
                 <div class="game-info">
                     <h1>Quiz dos Escudos</h1>
+                    <div class="timer-container">
+                        <div class="timer-circle">
+                            <span id="timer-text">60</span>
+                        </div>
+                        <p class="timer-label">segundos restantes</p>
+                    </div>
                 </div>
 
                 <div class="shield-container">
-                    <img id="escudo" src="" alt="Escudo aparecerá aqui">
+                    <img id="escudo" src="" alt="Escudo do time - aguardando carregamento" role="img">
                 </div>
                 <div class="answer-section">
-                    <input type="text" id="resposta" placeholder="Digite o nome do time">
-                    <button id="enviar-resposta">Enviar</button>
+                    <input type="text" id="resposta" placeholder="Digite o nome do time" autocomplete="off"
+                        aria-label="Campo para resposta do nome do time">
+                    <button type="button" id="enviar-resposta" aria-label="Enviar resposta">
+                        Enviar
+                    </button>
                 </div>
             </div>
 
             <div class="ranking-area">
                 <h2>Ranking</h2>
                 <div id="ranking-list"></div>
+
+                <!-- Botões de ação após fim do jogo -->
+                <div id="game-over-buttons" class="game-over-buttons hidden">
+                    <button id="play-again-btn" class="action-btn play-again">Jogar Novamente</button>
+                    <button id="back-to-menu-btn" class="action-btn back-to-menu">Sair para Menu</button>
+                </div>
             </div>
         </div>
     </div>

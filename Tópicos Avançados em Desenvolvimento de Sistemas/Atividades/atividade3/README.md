@@ -1,53 +1,118 @@
-# Atividade Prática 03 - Painel em Tempo Real com Socket.IO
+# 🚀 Painel em Tempo Real - Dashboard com Socket.IO
 
-Este projeto implementa um painel em tempo real (dashboard) que monitora usuários conectados e a popularidade de salas de bate-papo, utilizando Node.js, Express e Socket.IO.
+Um sistema de monitoramento em tempo real que exibe estatísticas de usuários conectados e popularidade de salas de chat, desenvolvido com Node.js, Express e Socket.IO.
 
-## 🎯 Objetivo
+## 📋 Sobre o Projeto
 
-Desenvolver um painel que exiba em tempo real o número total de usuários conectados e a sala (room) com mais usuários ativos, com atualizações automáticas a cada segundo.
+Este projeto implementa um painel (dashboard) avançado que monitora em tempo real:
 
-## 🚀 Funcionalidades
+- Número total de usuários conectados
+- Sala mais popular
+- Ranking completo de todas as salas ativas
+- Gráfico visual da distribuição de usuários
+- Alertas automáticos quando uma sala atinge muitos usuários
 
-### Requisitos Básicos
-- **Contagem de Usuários Online**: Exibe o número total de clientes conectados ao servidor.
-- **Sala Mais Popular**: Identifica e exibe qual sala contém o maior número de usuários.
-- **Atualização em Tempo Real**: Os dados no painel são atualizados a cada 1 segundo sem a necessidade de recarregar a página.
+O painel é atualizado automaticamente a cada segundo, proporcionando uma experiência de monitoramento em tempo real sem necessidade de recarregar a página.
 
-### 🌟 Funcionalidades Extras
-- **Ranking de Salas**: Exibe uma lista ordenada de todas as salas ativas, da mais populosa para a menos populosa.
-- **Gráfico em Tempo Real**: Um gráfico de barras (utilizando Chart.js) mostra visualmente a quantidade de usuários em cada sala.
-- **Alerta de Lotação**: Um alerta visual é exibido na tela quando uma sala ultrapassa 5 usuários.
+## ✨ Funcionalidades
 
-## 📦 Tecnologias Utilizadas
+### 🎯 Recursos Principais
 
-- **Backend**: Node.js, Express, Socket.IO
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Gráficos**: Chart.js
+- **Monitoramento de Usuários**: Contagem em tempo real de todos os clientes conectados
+- **Análise de Salas**: Identificação automática da sala com maior número de usuários
+- **Atualizações Automáticas**: Dados atualizados a cada segundo via WebSocket
+- **Interface Responsiva**: Design adaptável para diferentes dispositivos
 
-## ⚙️ Como Executar o Projeto
+### 🌟 Recursos Avançados
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
-    cd SEU-REPOSITORIO
-    ```
+- **Ranking Dinâmico**: Lista ordenada de todas as salas ativas por popularidade
+- **Gráfico Interativo**: Visualização em barras usando Chart.js
+- **Sistema de Alertas**: Notificações visuais quando uma sala excede 5 usuários
+- **Gerenciamento de Salas**: Usuários podem migrar entre salas dinamicamente
 
-2.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
+## �️ Tecnologias Utilizadas
 
-3.  **Inicie o servidor:**
-    ```bash
-    npm start
-    ```
-    Ou
-    ```bash
-    node server.js
-    ```
+| Categoria         | Tecnologia              | Versão  |
+| ----------------- | ----------------------- | ------- |
+| **Backend**       | Node.js                 | 16+     |
+| **Framework Web** | Express.js              | ^5.1.0  |
+| **WebSocket**     | Socket.IO               | ^4.8.1  |
+| **Frontend**      | HTML5, CSS3, JavaScript | Vanilla |
+| **Gráficos**      | Chart.js                | CDN     |
 
-4.  **Acesse a aplicação:**
-    Abra seu navegador e visite `http://localhost:3000`.
+## 📁 Estrutura do Projeto
 
-5.  **Para testar:**
-    Abra a página em múltiplas abas ou navegadores. Use o campo de texto para entrar em diferentes salas e observe o painel, o ranking e o gráfico se atualizarem em tempo real.
+```
+painel_tempo_real-TA-2025/
+├── 📄 server.js           # Servidor principal com Socket.IO
+├── 📄 package.json        # Dependências e scripts
+├── 📄 README.md          # Este arquivo
+└── 📁 public/            # Arquivos estáticos
+    ├── 📄 index.html     # Interface principal
+    ├── 📄 style.css      # Estilos da aplicação
+    └── 📄 script.js      # Lógica do frontend
+```
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+
+- **Node.js** versão 16 ou superior
+- **npm** (vem com o Node.js)
+- Navegador web moderno
+
+### 📥 Instalação e Execução
+
+1. **Clone ou baixe o projeto:**
+
+   ```bash
+   git clone <url-do-repositorio>
+   cd painel_tempo_real-TA-2025
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor:**
+
+   ```bash
+   node server.js
+   ```
+
+   Você verá a mensagem:
+
+   ```
+   Servidor rodando em http://localhost:3000
+   ```
+
+4. **Acesse a aplicação:**
+   - Abra seu navegador
+   - Acesse: `http://localhost:3000`
+
+### 🧪 Como Testar
+
+1. **Teste Básico:**
+
+   - Abra a aplicação em múltiplas abas do navegador
+   - Observe o contador de usuários aumentar
+
+2. **Teste de Salas:**
+
+   - Digite nomes de salas diferentes no campo de texto
+   - Clique em "Entrar na Sala"
+   - Observe o ranking e gráfico se atualizarem
+
+3. **Teste de Alertas:**
+   - Abra 6 ou mais abas na mesma sala
+   - Veja o alerta de lotação aparecer
+
+## 📊 Como Funciona
+
+1. **Conexão**: Usuários conectam via WebSocket ao acessar a página
+2. **Salas**: Usuários podem entrar em salas específicas digitando o nome
+3. **Monitoramento**: Servidor tracked conexões e distribuição por salas
+4. **Broadcast**: A cada segundo, estatísticas são enviadas para todos os clientes
+5. **Visualização**: Frontend atualiza painel, ranking e gráfico automaticamente

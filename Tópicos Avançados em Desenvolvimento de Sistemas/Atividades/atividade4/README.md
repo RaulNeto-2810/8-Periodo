@@ -1,88 +1,95 @@
-# Atividade Avaliativa
-# 🏆 Quiz dos escudos de times de futebol
+# 🏆 Quiz dos Escudos de Futebol
 
-## 📌 Descrição
+Um jogo multiplayer em tempo real onde você testa seus conhecimentos sobre escudos de times de futebol de todo o mundo!
 
-Nesta atividade você irá transformar a aplicação base (Node.js + Express.js + Socket.io) em um **jogo multiplayer em tempo real**.
+## 🎮 Como Jogar
 
-O servidor já está configurado para:
+### 📝 **Objetivo**
 
-* Servir arquivos estáticos com **Express.js**.
-* Usar **Socket.io** para comunicação em tempo real.
-* Ler o arquivo `escudos.json`, que contém informações dos escudos (campos: `url`, `nome`, `alternativas`, `liga`).
-* A cada **N segundos**, enviar um escudo aleatório para todos os clientes conectados.
+Acerte o maior número de times possível em 60 segundos e conquiste o topo do ranking!
 
-O cliente já exibe o escudo atual.
+### 🎯 **Regras**
 
-Agora, sua missão é **gamificar** a aplicação! 🎮
+1. **Digite seu nome** na tela inicial e clique em "Começar Jogo"
+2. **Um escudo de time** aparecerá na tela
+3. **Digite o nome correto** do time no campo de resposta
+4. **Cada acerto** vale 1 ponto e você recebe um novo escudo
+5. **Você tem 60 segundos** para acertar o máximo de times possível
+6. **Compete em tempo real** com outros jogadores online
 
----
+### ⚽ **Nomes Aceitos**
 
-## 🎯 Regras do Jogo
+O jogo aceita tanto o nome oficial quanto apelidos populares:
 
-1. Os jogadores devem digitar o **nome correto do time** em um campo de texto e enviar clicando em um botão.
-2. Se o jogador acertar o nome (comparando com as chaves `"nome"` ou `"alternativas"` do objeto enviado pelo servidor), ele ganha **+1 ponto**.
-3. O ranking de pontos deve ser exibido para todos os jogadores em tempo real.
-4. Vence quem tiver mais pontos ao final da partida (ou simplesmente acumular mais pontos).
+- **Barcelona** → aceita "Barça", "FC Barcelona"
+- **Real Madrid** → aceita "Real", "Real Madrid CF"
+- **Santos** → aceita "Peixe", "Santos FC"
+- E muitos outros...
 
----
+### 🏆 **Ranking**
 
-## 📂 Estrutura sugerida
+- O ranking é atualizado em tempo real
+- Veja sua posição comparada com outros jogadores
+- Os 3 primeiros colocados recebem destaque especial
 
-```
-server.js
-escudos.json
-public/
- ├─ index.html
- ├─ styles.css
- └─ client.js
-```
+### 🔄 **Após o Jogo**
 
----
+Quando o tempo acabar, você pode:
 
-## ✅ O que deve ser feito
-
-* Criar um **input\:text** e um **botão** no cliente (`index.html`).
-* Ao enviar a resposta, verificar se está correta.
-* Se o jogador acertar, atualizar a pontuação dele no servidor.
-* Manter uma **lista de ranking** compartilhada entre todos os clientes conectados.
-* Exibir o ranking atualizado em tempo real na tela.
+- **🎮 Jogar Novamente**: Inicia uma nova partida zerada
+- **🏠 Sair para Menu**: Volta ao menu inicial
 
 ---
 
-## 🚀 Entregáveis
+## 🚀 Como Executar
 
-* **Link do GitHub** com a aplicação completa (código funcionando).
-* O projeto deve rodar com os comandos:
+### **Pré-requisitos**
 
-  ```bash
-  npm install
-  npm run dev   # ou npm start
-  ```
-* README explicando como jogar.
+- Node.js instalado no seu computador
+
+### **Passo a passo**
+
+1. **Clone ou baixe o projeto**
+
+   ```bash
+   git clone [url-do-repositorio]
+   cd quiz_escudos-TA-2025
+   ```
+
+2. **Instale as dependências**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor**
+
+   ```bash
+   node server.js
+   ```
+
+4. **Acesse o jogo**
+   - Abra seu navegador
+   - Digite: `http://localhost:3000`
+   - Divirta-se jogando!
+
+### **Jogando com amigos**
+
+- Cada pessoa deve acessar `http://localhost:3000` no seu navegador
+- Todos jogarão simultaneamente no mesmo ranking
+- Perfeito para competições entre amigos!
 
 ---
 
-## 💡 Dicas
+## 🎨 Características
 
-* Use `socket.emit` para enviar a resposta do jogador ao servidor.
-* No servidor, valide a resposta comparando com `"nome"` e `"alternativas"`.
-* Use `io.emit` para atualizar o ranking de todos os clientes.
-* Lembre-se de normalizar as strings (maiúsculas/minúsculas, acentos).
-
----
-
-## 📝 Critérios de Avaliação
-
-* Funcionamento correto do jogo (acerto → ponto).
-* Ranking atualizado em tempo real.
-* Organização do código.
-* Criatividade na interface.
+- 🌍 **+30 escudos** de times do mundo todo
+- ⚡ **Multiplayer em tempo real** com Socket.io
+- 📱 **Interface responsiva** - funciona no celular
+- 🎯 **Sistema inteligente** de validação de nomes
+- 🏆 **Ranking dinâmico** com posições em tempo real
+- 🎮 **Controles intuitivos** - digite e pressione Enter
 
 ---
 
-## 👉 Entrega final
-
-* Link do repositório no GitHub com a aplicação funcionando.
-
----
+**Divirta-se testando seus conhecimentos futebolísticos! ⚽**
