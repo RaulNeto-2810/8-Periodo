@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Alunos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CRUD de Alunos</h1>
+
+        <form id="aluno-form">
+            <input type="hidden" id="aluno-id">
+            <div class="form-row">
+                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <input type="number" name="idade" id="idade" placeholder="Idade" required min="1" max="120">
+                <input type="text" name="curso" id="curso" placeholder="Curso" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" id="submit-btn">Adicionar</button>
+                <button type="button" id="cancel-btn" style="display: none;">Cancelar</button>
+            </div>
+        </form>
+
+        <h2>Lista de Alunos</h2>
+        <ul id="aluno-list">
+        </ul>
+    </div>
+</body>
+
+</html>
