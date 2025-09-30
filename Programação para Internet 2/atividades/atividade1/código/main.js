@@ -26,8 +26,8 @@ let idCounter = 1
 
 // Criar a rota POST (para inserir)
 app.post('/produtos', (req, res) => {
-    const {nome, preco} = req.body
-    const novoProduto = {id: idCounter++, nome, preco}
+    const { nome, preco } = req.body
+    const novoProduto = { id: idCounter++, nome, preco }
     produtos.push(novoProduto)
     res.status(201).json(novoProduto)
 })
@@ -37,28 +37,20 @@ app.get('/produtos', (req, res) => {
     res.json(produtos)
 })
 
-// Criar a rota de atualização/update (PUT)
-app.put('/produtos/:id', (req, res) => {
+// Criar a rota para buscar um produto específico (GET)
+app.get('/produtos/:id', (req, res) => {
     const id = parseInt(req.params.id)
-    const {nome, preco} = req.body
     const produto = produtos.find(p => p.id === id)
-    if (!produto) return res.status(404).json({error: `Produto com o ${id} não encontrado`})
-    produto.nome = nome
-    produto.preco = preco
+    if (!produto) return res.status(404).json({ error: `Produto com o ${id} não encontrado` })
     res.json(produto)
 })
 
-// Criar a rota para listar (GET)
-app.get('/produtos', (req, res) => {
-    res.json(produtos)
-})
-
 // Criar a rota de atualização/update (PUT)
 app.put('/produtos/:id', (req, res) => {
     const id = parseInt(req.params.id)
-    const {nome, preco} = req.body
+    const { nome, preco } = req.body
     const produto = produtos.find(p => p.id === id)
-    if (!produto) return res.status(404).json({error: `Produto com o ${id} não encontrado`})
+    if (!produto) return res.status(404).json({ error: `Produto com o ${id} não encontrado` })
     produto.nome = nome
     produto.preco = preco
     res.json(produto)
@@ -67,9 +59,9 @@ app.put('/produtos/:id', (req, res) => {
 // Criar a rota de atualização/update (PATCH)
 app.patch('/produtos/:id', (req, res) => {
     const id = parseInt(req.params.id)
-    const {nome, preco} = req.body
+    const { nome, preco } = req.body
     const produto = produtos.find(p => p.id === id)
-    if (!produto) return res.status(404).json({error: `Produto com o ${id} não encontrado`})
+    if (!produto) return res.status(404).json({ error: `Produto com o ${id} não encontrado` })
     if (nome) produto.nome = nome
     if (preco) produto.preco = preco
     res.json(produto)
@@ -78,8 +70,10 @@ app.patch('/produtos/:id', (req, res) => {
 // Criar a rota de remoção (DELETE)
 app.delete('/produtos/:id', (req, res) => {
     const id = parseInt(req.params.id)
+    const produto = produtos.find(p => p.id === id)
+    if (!produto) return res.status(404).json({ error: `Produto com o ${id} não encontrado` })
     produtos = produtos.filter(p => p.id !== id)
-    if (!produto) return res.status(204).json({error: `Produto com o ${id} não encontrado`})
+    res.status(204).send()
 })
 
 // Subir o servidor
