@@ -1,2 +1,2 @@
-pYyi3uz3seQ94cmZ
-SENHA = 4
+SENHA = qSGnFh5KTh7pglJp
+MONGODB_URI=mongodb+srv://raultorres_db_user:qSGnFh5KTh7pglJp@bd.3goalse.mongodb.net/?retryWrites=true&w=majority&appName=BD

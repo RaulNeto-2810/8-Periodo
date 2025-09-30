@@ -1,18 +1,27 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 const connectDB = require('./db')
 const gameRouters = require('./routes/game.routes')
+const loggerMiddleware = require('./middlewares/logger')
+const errorHandler = require('./middlewares/errorHandler')
 
 const app = express()
 
 const port = 3000
 
-app.use(express.json())
-
+// Configurar dotenv antes de usar as variáveis de ambiente
 dotenv.config()
 
-connectDB() 
+// Middlewares globais
+app.use(cors()) // Permitir requisições de diferentes origens
+app.use(express.json({ limit: '10mb' })) // Parse JSON com limite
+app.use(express.urlencoded({ extended: true })) // Parse URL-encoded
+app.use(loggerMiddleware) // Log de todas as requisições
+
+// Conectar ao banco de dados
+connectDB()
 
 app.get('/', (req, res) => {
     res.send('Bem Vindo ao Game')
@@ -21,21 +30,17 @@ app.get('/', (req, res) => {
 //Rotas
 app.use('/games', gameRouters)
 
-//Handler de erros
-app.use((err, req, res, next) => {
-    console.error(err)
-    //CastError
-    if (err.name === 'CastError'){
-        return res.status(400).json({ erro: 'ID inválido' })
-    }
-
-    // Erro de Validação
-    if (err.name === 'ValidationError'){
-        return res.status(400).json({ erro: "Validação falhou", detalhes: err.errors })
-    }
-
-    res.status(500).json({ erro: "Erro interno do servidor" })
+// Middleware para rotas não encontradas (404)
+app.use((req, res, next) => {
+    res.status(404).json({
+        erro: 'Rota não encontrada',
+        message: `A rota ${req.method} ${req.originalUrl} não existe`,
+        timestamp: new Date().toISOString()
+    })
 })
+
+// Middleware de tratamento de erros (deve ser o último)
+app.use(errorHandler)
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
