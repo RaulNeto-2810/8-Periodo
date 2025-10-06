@@ -1,0 +1,1 @@
+MONGO_URI=mongodb+srv://raultorres_db_user:kaepqHT4h0DaUudo@aula6.v356p2g.mongodb.net/?retryWrites=true&w=majority&appName=aula6
