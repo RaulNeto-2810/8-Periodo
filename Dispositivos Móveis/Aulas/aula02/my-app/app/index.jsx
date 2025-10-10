@@ -1,7 +1,7 @@
 // app/index.jsx
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-import MovieItem from '../components/MovieItem';
+import { StyleSheet, Text, View } from 'react-native';
+import MovieList from '../components/MovieList';
 
 export default function Home() {
     const [movies, setMovies] = useState([])
@@ -11,16 +11,17 @@ export default function Home() {
     useEffect(() => {
         async function getMovies() {
             let api_key = process.env.EXPO_PUBLIC_TMDB_API
-            let endpoint = "https://api.themoviedb.org/3/movie/popular"
+            let endpoint = "https://api.themoviedb.org/3/movie/popular?language=pt-BR&"
 
             let resp = await fetch(endpoint, {
-                method: 'GET',
+                method: "GET",
                 headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer + ${api_key}`
+                    accept: "application/json",
+                    Authorization: `Bearer ${api_key}`
                 }
             })
-            if ( resp.status === 200 ) {
+            
+            if ( resp.status == 200 ) {
                 let movie_list = await resp.json()
                 console.log(movie_list)
                 setMovies(movie_list.results)
@@ -34,13 +35,7 @@ export default function Home() {
 			<Text style={styles.text}>
 				App FILMES
 			</Text>
-            <FlatList
-                data={movies}
-                numColumns={2}
-                renderItem={({ item }) => (
-                    <MovieItem movie={item} key={item.id} />
-                )}
-            />
+            <MovieList movies={movies} />
 		</View>
 	);
 }
