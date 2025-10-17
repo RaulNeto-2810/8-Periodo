@@ -2,10 +2,71 @@ import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import Favorite from "../components/favorite";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useState } from "react";
 
 export default function MovieScreen() {
+    const [favorites, setFavorites] = useState([])
+
     const params = useLocalSearchParams()
     const movie = JSON.parse(params.movie)
+
+    useEffect(() => {
+        async function verificaFavoritos(){
+            console.log("Filmes Favoritados:")
+            let favs = await getData("Favorites")
+            console.log(favs)
+        }
+        verificaFavoritos()
+    }, [])
+
+
+
+    async function onFavorite(movieFavorited){
+        let movieId = movieFavorited.id
+
+        let favs = await getData("Favorites")
+        let newFavs = []
+        let exists = false
+        for (let fav of favs) {
+            if (fav == movieId ){
+                exists = true
+            } else {
+                newFavs.push(fav)
+            }
+        }
+
+        if ( exists == false) {
+            newFavs.push(movieId)
+        }
+
+        await storeData("Favorites", newFavs)
+        setFavorites(newFavs)
+    }
+
+    async function storeData(key, value){
+        try {
+            if (typeof value != 'string'){
+                value = JSON.stringify(value)
+            }
+            await AsyncStorage.setItem(key, value)
+            console.log(`Salvou ${key} com o valor ${value}`)
+        } catch (err) {
+            console.log("Erro: " + err)
+        }
+    }
+
+    async function getData(key) {
+        try {
+            let value = await AsyncStorage.getItem(key)
+            if ( value != null ) {
+                return JSON.parse(value)
+            }
+            return []
+        } catch (err) {
+            console.log("Erro: " + err)
+        }
+    }
 
     return (
         <ScrollView style={styles.container}>
@@ -29,7 +90,11 @@ export default function MovieScreen() {
                     </Text>
                 </View>
 
-                <Favorite idMovie={movie.id} isFavorite={false} />
+                <Favorite 
+                    movie={movie} 
+                    isFavorite={favorites.includes(movie.id)} 
+                    onPressFavorite={onFavorite} 
+                />
 
                 {/* Data de lançamento */}
                 <View style={styles.dateContainer}>

@@ -11,7 +11,7 @@ export default function Home() {
     useEffect(() => {
         async function getMovies() {
             let api_key = process.env.EXPO_PUBLIC_TMDB_API
-            let endpoint = "https://api.themoviedb.org/3/movie/popular?language=pt-BR&"
+            let endpoint = "https://api.themoviedb.org/3/movie/popular?language=pt-BR"
 
             let resp = await fetch(endpoint, {
                 method: "GET",
@@ -21,7 +21,7 @@ export default function Home() {
                 }
             })
             
-            if ( resp.status == 200 ) {
+            if ( resp.status === 200 ) {
                 let movie_list = await resp.json()
                 console.log(movie_list)
                 setMovies(movie_list.results)
