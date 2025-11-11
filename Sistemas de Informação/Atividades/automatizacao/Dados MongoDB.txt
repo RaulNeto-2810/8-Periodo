@@ -1,0 +1,9 @@
+Password: EKvOPcpuOh5WrbKW
+
+mongodb+srv://raultorres_db_user:EKvOPcpuOh5WrbKW@cluster0.ys0nzsd.mongodb.net/?appName=Cluster0
+
+Faça um Painel de Vendas e Estatísticas onde o objetico é acompanhar desempenho de um PetShop.
+
+Como automatizar:
+- Sistema coleta dados de vendas e gera gráficos automáticos (matplotlib/seaborn).
+- Mostrar dados como faturamento semanal, produtos mais vendidos, etc.
